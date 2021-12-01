@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             registerReceiver(br, filter);
             //Se cierra
             unregisterReceiver(br);
-
+            //
             context.sendBroadcast(intent);
             //context.sendOrderedBroadcast(intent);
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
