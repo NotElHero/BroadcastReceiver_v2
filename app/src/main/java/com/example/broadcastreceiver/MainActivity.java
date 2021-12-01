@@ -13,12 +13,17 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    //se crea una instancia BroadcastReceiver
     BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            //Se crea un filtro para los intents y se le pasa la conectividad
             IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+            //Se le añade alguna accion
             filter.addAction(intent.ACTION_AIRPLANE_MODE_CHANGED);
+            //Registra
             registerReceiver(br, filter);
+            //Se cierra
             unregisterReceiver(br);
 
             context.sendBroadcast(intent);
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void sendBroadcast(Intent intent) {
+
         super.sendBroadcast(intent);
     }
 
